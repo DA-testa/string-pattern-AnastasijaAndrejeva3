@@ -6,12 +6,10 @@ def read_input():
     if input_type == 'I':
         pattern = input().strip()
         text = input().strip()
-    if input_type = 'F':
+    else:
         with open('06', 'r') as f:
             pattern = f.readline().strip()
             text = f.readline().strip()
-    else:
-        pass
 
     return pattern, text
 
