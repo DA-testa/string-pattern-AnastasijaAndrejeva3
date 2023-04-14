@@ -7,7 +7,7 @@ def read_input():
         pattern = input().strip()
         text = input().strip()
     else:
-        with open('06', 'r') as f:
+        with open('./tests/06', 'r') as f:
             pattern = f.readline().strip()
             text = f.readline().strip()
 
