@@ -7,9 +7,12 @@ def read_input():
         pattern = input().strip()
         text = input().strip()
     else:
-        with open('tests/06', 'r') as f:
-            pattern = f.readline().strip()
-            text = f.readline().strip()
+        file = input()
+        if 'a' not in file:
+            full_file_name = "tests/"+name
+            with open(full_file_name, 'r') as f:
+                pattern = f.readline().strip()
+                text = f.readline().strip()
 
     return pattern, text
 
