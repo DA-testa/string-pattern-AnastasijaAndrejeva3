@@ -3,9 +3,11 @@
 def read_input():
     input_type = input()
 
-    if input_type == 'I':
+    if 'I' in input_type:
         pattern = input().strip()
         text = input().strip()
+        return pattern, text
+    
     elif 'F' in input_type:
         file = input()
         if 'a' not in file:
@@ -13,8 +15,7 @@ def read_input():
             with open(full_file_name, 'r') as f:
                 pattern = f.readline().strip()
                 text = f.readline().strip()
-
-    return pattern, text
+                return pattern, text
 
 
 def print_occurrences(output):
