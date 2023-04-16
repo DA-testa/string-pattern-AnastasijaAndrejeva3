@@ -16,6 +16,9 @@ def read_input():
                 pattern = f.readline().strip()
                 text = f.readline().strip()
                 return pattern, text
+    else:
+        print("Ievadiet burtu 'I' vai 'F':")
+        return
 
 
 def print_occurrences(output):
