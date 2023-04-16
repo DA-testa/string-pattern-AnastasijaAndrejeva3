@@ -12,10 +12,10 @@ def read_input():
         file = input()
         if not 'a' in file:
             file = "tests/" + file
-            with open(file, 'r')as f:
-                pattern = f.readline().rstrip()
-                text = f.readline().rstrip()
-                return pattern, text
+            f = open (file, 'r')
+            pattern = f.readline().rstrip()
+            text = f.readline().rstrip()
+            return pattern, text
     else:
         print("Ievadiet burtu 'I' vai 'F':")
         return
