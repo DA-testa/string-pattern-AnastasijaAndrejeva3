@@ -1,4 +1,4 @@
-# python3
+# Anastasija Andrejeva, 18. grupa, 221RDC028
 
 def read_input():
     input_type = input()
@@ -10,9 +10,9 @@ def read_input():
     
     elif 'F' in input_type:
         file = input()
-        if 'a' not in file:
-            full_file_name = "tests/" + file
-            with open(full_file_name, 'r') as f:
+        if not 'a' in file:
+            file = "tests/" + file
+            with open(file, 'r')as f:
                 pattern = f.readline().strip()
                 text = f.readline().strip()
                 return pattern, text
