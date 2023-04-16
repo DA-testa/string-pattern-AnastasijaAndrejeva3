@@ -9,7 +9,7 @@ def read_input():
         return pattern, text
     
     elif 'F' in input_type:
-        file = input()
+        file = '06'
         if 'a' not in file:
             full_file_name = "tests/" + file
             with open(full_file_name, 'r') as f:
