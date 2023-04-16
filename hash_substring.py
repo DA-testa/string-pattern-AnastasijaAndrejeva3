@@ -6,10 +6,10 @@ def read_input():
     if input_type == 'I':
         pattern = input().strip()
         text = input().strip()
-    else:
+    elif:
         file = input()
         if 'a' not in file:
-            full_file_name = "tests/"+name
+            full_file_name = "tests/"+file
             with open(full_file_name, 'r') as f:
                 pattern = f.readline().strip()
                 text = f.readline().strip()
