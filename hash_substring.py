@@ -11,7 +11,7 @@ def read_input():
     elif 'F' in input_type:
         file = input()
         if 'a' not in file:
-            full_file_name = "tests/"+file
+            full_file_name = "tests/" + file
             with open(full_file_name, 'r') as f:
                 pattern = f.readline().strip()
                 text = f.readline().strip()
@@ -23,8 +23,15 @@ def print_occurrences(output):
 
 
 def get_occurrences(pattern, text):
-    pattern_hash = sum(ord(c) for c in pattern) % 101
-    text_hash = sum(ord(text[i]) for i in range(len(pattern))) % 101
+    pattern_hash = 0
+    for c in pattern:
+        pattern_hash += ord(c)
+    pattern_hash = pattern_hash % 101
+
+    text_hash = 0
+    for k in range(len(pattern)):
+        text_hash += ord(text[k])
+    text_hash = text_hash % 101
 
     occurrences = []
     for i in range(len(text) - len(pattern) + 1):
