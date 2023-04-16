@@ -6,7 +6,7 @@ def read_input():
     if input_type == 'I':
         pattern = input().strip()
         text = input().strip()
-    elif:
+    elif 'F' in input_type:
         file = input()
         if 'a' not in file:
             full_file_name = "tests/"+file
