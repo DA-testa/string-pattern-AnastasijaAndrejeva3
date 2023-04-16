@@ -1,32 +1,51 @@
-# python3
+# Anastasija Andrejeva, 18. grupa, 221RDC028
 
 def read_input():
-    # this function needs to aquire input both from keyboard and file
-    # as before, use capital i (input from keyboard) and capital f (input from file) to choose which input type will follow
+    input_type = input()
+
+    if 'I' in input_type:
+        pattern = input().strip()
+        text = input().strip()
+        return pattern, text
     
-    
-    # after input type choice
-    # read two lines 
-    # first line is pattern 
-    # second line is text in which to look for pattern 
-    
-    # return both lines in one return
-    
-    # this is the sample return, notice the rstrip function
-    return (input().rstrip(), input().rstrip())
+    elif 'F' in input_type:
+        file = '06'
+        if 'a' not in file:
+            full_file_name = "tests/" + file
+            with open(full_file_name, 'r') as f:
+                pattern = f.readline().strip()
+                text = f.readline().strip()
+            return pattern, text
+    else:
+        print("Ievadiet burtu 'I' vai 'F':")
+        return
+
 
 def print_occurrences(output):
-    # this function should control output, it doesn't need any return
     print(' '.join(map(str, output)))
 
+
 def get_occurrences(pattern, text):
-    # this function should find the occurances using Rabin Karp alghoritm 
+    pattern_hash = 0
+    for c in pattern:
+        pattern_hash += ord(c)
+    pattern_hash = pattern_hash % 101
 
-    # and return an iterable variable
-    return [0]
+    text_hash = 0
+    for k in range(len(pattern)):
+        text_hash += ord(text[k])
+    text_hash = text_hash % 101
 
+    occurrences = []
+    for i in range(len(text) - len(pattern) + 1):
+        if pattern_hash == text_hash:
+            if pattern == text[i:i+len(pattern)]:
+                occurrences.append(i)
+        if i < len(text) - len(pattern):
+            text_hash = text_hash - ord(text[i]) + ord(text[i+len(pattern)])
+            text_hash %= 101
+    return occurrences
 
-# this part launches the functions
 if __name__ == '__main__':
     print_occurrences(get_occurrences(*read_input()))
 
